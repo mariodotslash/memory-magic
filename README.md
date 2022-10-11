@@ -2,7 +2,7 @@
 
 ### Card Matching
 
-Cards are matched based on values, where suit is not considered. For each turn, a player may select two cards, which are displayed for 1 second after completing the turn. In the case where the cards are a match, they will stay disappear and you will get 1 point.
+Cards are matched based on values, where suit is not considered. For each turn, a player may select two cards, which are displayed for 1 second after completing the turn. In the case where the cards are a match, they will disappear and you will get 1 point.
 
 ### Points
 
