@@ -1,0 +1,210 @@
+.App {
+  margin: 40px auto;
+  color: #fff;
+ 
+}
+
+
+.gradient-blob-1{
+  z-index: -1;
+  position: absolute;
+  background: radial-gradient(157.07% 157.07% at 171.6% 173.4%, #FFFFFF 0%, #3E92CE 100%); /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  filter: blur(75px);
+  width: 637px;
+  height: 637px;
+  left: -96px;
+  top: -188px;
+}
+
+.gradient-blob-2{
+  z-index: -1;
+  position: absolute;
+  width: 915px;
+  height: 915px;
+  left: 638px;
+  top: -195px;
+  background: radial-gradient(157.07% 157.07% at 171.6% 173.4%, #FFFFFF 0%, #3E92CE 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  filter: blur(75px);
+}
+
+.gradient-blob-3{
+  z-index: -1;
+  position: absolute;
+  width: 664px;
+  height: 664px;
+  left: 828px;
+  top: 688px;
+  background: radial-gradient(157.07% 157.07% at 171.6% 173.4%, rgba(255, 255, 255, 0.3) 0%, rgba(62, 146, 206, 0.3) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(157.07% 157.07% at 171.6% 173.4%, rgba(255, 255, 255, 0.7) 0%, rgba(62, 146, 206, 0.7) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  filter: blur(75px);
+}
+
+
+h1{
+  color: #fff;
+  font-weight: 700 !important;
+}
+
+.heading{
+  justify-content: end !important;
+  }
+
+.card-grid{ 
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 8px;
+  padding: 2rem;
+  background: linear-gradient(133.05deg, rgba(255, 255, 255, 0.6) 0.62%, rgba(255, 255, 255, 0.1) 102.4%);
+  border-radius: 8px;
+  padding-right: 2rem !important; 
+}
+
+.back{
+  width: 72px;
+  height: 112px;
+} 
+
+.player-backlay{
+  background: linear-gradient(160.65deg, rgba(255, 255, 255, 0.6) 0.74%, rgba(255, 255, 255, 0.1) 102.03%);
+  border-radius: 8px;
+  color: #fff;
+}
+
+.styled-btn{
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.player-name{
+  font-weight: 800 !important;
+}
+
+.player-score{
+  font-weight: 600 !important;
+}
+
+.matched-1{
+  z-index: 10;
+  position: absolute;
+  border-radius: 8px;
+  width: 52rem;
+  height: 45rem;
+}
+
+.p1-turn{
+  color: #fff !important;
+  font-weight: 700 !important;
+  background: #0AB169;
+  border-radius: 8px;
+}
+
+.p2-turn{
+  color: #489DDA !important;
+  font-weight: 700 !important;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.play-btn{
+  background-color:#0AB169 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.avatar-size{
+  height: 196px;
+  width: 152px;
+}
+
+.champion{
+  height: 14rem;
+  width: 15rem;
+}
+
+.winner{
+  background: linear-gradient(92.15deg, #FFD975 35.31%, #FFFFFF 135.61%);
+  border-radius: 8px;
+}
+
+.loser{
+  background: #FFF;
+  border-radius: 8px;
+}
+
+.champion-text{
+  color: #0D4477
+}
+
+.baby-avatar{
+  height: 74px;
+  width: 74px;
+}
+
+.placement{
+  font-weight: 700 !important;
+  font-size: 20px;
+}
+
+.score{
+  font-weight: 500 !important;
+  font-size: 20px;
+}
+
+.spacing{
+  max-width: 600px !important;
+}
+
+.trophy{
+  position: absolute;
+  top: -2rem;
+  height: 65px;
+  width: 65px;
+  left: -5rem;
+}
+
+.play-again-btn{
+  background: #A7DAFF;
+  border-color: #A7DAFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  color:#164464;
+  font-weight: 700;
+}
+
+.modal{
+  z-index: 30;
+  position: absolute;
+}
+
+/* Small screen */
+
+@media (max-width:768px) {
+  .glass-bg{
+    background: linear-gradient(133.05deg, rgba(255, 255, 255, 0.6) 0.62%, rgba(255, 255, 255, 0.1) 102.4%);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  .play-btn{
+    background: #A7DAFF !important;
+    border-color: #A7DAFF !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05) !important;
+    border-radius: 8px !important;
+    color:#164464 !important;
+    font-weight: 700 !important;
+  }
+
+  .card-grid{ 
+    width: 300px !important;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 2px;
+    padding: 2rem;
+    background: linear-gradient(133.05deg, rgba(255, 255, 255, 0.6) 0.62%, rgba(255, 255, 255, 0.1) 102.4%);
+    border-radius: 8px;
+    padding-right: 2rem !important; 
+  }
+
+  
+}
