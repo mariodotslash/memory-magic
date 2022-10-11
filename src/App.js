@@ -192,7 +192,7 @@ function App() {
   }, [])
   
 
-  return (a
+  return (
     <div className="App">
       <div className='gradient-blob-1'/>
         <div className='gradient-blob-2'/>
