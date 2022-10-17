@@ -38,3 +38,45 @@
 .disappear{
     opacity: 0;
 }
+
+
+@media (max-height:768px) {
+
+    .card img {
+        width: 40px;
+        height: 60px;
+        display: block;
+        border-radius: 8%;
+        margin-bottom:1rem;
+    }
+
+    .card .front {
+        transform: rotateY(90deg);
+        position: absolute;
+        transition: all ease-in 0.2s;
+        width: 40px;
+        height: 60px;
+    }
+    
+    .flipped .front {
+        transform: rotateY(0deg);
+        transition-delay: 0.2s;
+    }
+    
+    /* back of card  */
+    .card .back {
+        transition: all ease-in 0.2s;
+        transition-delay: 0.2s;
+    }
+    
+    .flipped .back {
+        transform: rotateY(90deg);
+        transition: 0s;
+    }
+    
+    .disappear{
+        opacity: 0;
+    }
+    
+
+}

@@ -83,6 +83,8 @@ function App() {
   const [winnerScore, setWinnerScore] = useState(null);
   const [loserName, setLoserName] = useState(null);
   const [loserScore, setLoserScore] = useState(null);
+  const [winnerAvatar, setWinnerAvatar] = useState(null);
+  const [loserAvatar, setLoserAvatar] = useState(null);
 
   //shuffle cards 
   const shuffleCards = () => {
@@ -121,11 +123,15 @@ function App() {
       setWinnerScore(p1Score);
       setLoserName(p2Name);
       setLoserScore(p2Score);
+      setWinnerAvatar('./img/balloonman.png')
+      setLoserAvatar('./img/rocketman.png')
     } else {
       setWinnerName(p2Name);
       setWinnerScore(p2Score);
       setLoserName(p1Name);
       setLoserScore(p1Score);
+      setWinnerAvatar('./img/rocketman.png')
+      setLoserAvatar('./img/balloonman.png')
 
     }
   },[p1Score, p2Score])
@@ -194,9 +200,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className='gradient-blob-1'/>
-        <div className='gradient-blob-2'/>
-        <div className='gradient-blob-3'/>
+      <div className='gradient-blob-1 none'/>
+      <div className='gradient-blob-2 none'/>
+      <div className='gradient-blob-3 none'/>
+
       <div className='container-fluid'>
         <div className='row text-center py-4 justify-content-between flex-wrap'>
           <div class="col-sm-7 d-flex  heading align-items-center">
@@ -204,18 +211,18 @@ function App() {
           </div>
          
           <div class="col-sm-4 pt-2 ms-1 text-center ">    
-            <button type="button" class={(!showGame || totalScore === 27) ? 'd-none': "btn btn-warning styled-btn me-3" } onClick={shuffleCards}>Restart Game</button>
-            <button type="button" class="btn btn-danger styled-btn" onClick={showGameScreen}>Exit Game</button>
+            <button type="button" class={(!showGame || totalScore === 27) ? 'd-none': "btn btn-warning styled-menu-btn me-3" } onClick={shuffleCards}>Restart Game</button>
+            <button type="button" class="btn btn-danger styled-menu-btn" onClick={showGameScreen}>Exit Game</button>
           </div>
         </div>
 
         <div className={showGame ? 'd-none' :'container py-5 spacing glass-bg'}> 
-          <div className='row text-center'>
+          <div className='row text-center row text-center justify-content-around'>
             <div className='col-12 '>
               <h1>Are you ready to play?</h1>
             </div>
             
-            <div className='col-6'>
+            <div className='col-5'>
               <form>
                 <img className='avatar-size py-2' src='./img/balloonman.png'  alt='player1'/>
                 <input type="text" class="form-control" id='p1Name' onChange={handleChange1}
@@ -223,7 +230,7 @@ function App() {
               </form>
             </div>
 
-            <div className='col-6 '>
+            <div className='col-5 '>
               <form>
                 <img className='avatar-size py-2' src='./img/rocketman.png'  alt='player2'/>
                 <input type="text" class="form-control" id='p2Name'  onChange={handleChange2}
@@ -239,7 +246,8 @@ function App() {
  
         <div className={(!showGame || totalScore === 27) ? 'd-none' : 'container'}>
           <div className='row justify-content-between align-items-center'>
-            <div className='col-2  text-center'>
+
+            <div className='col-2 none text-center'>
               <div className='player-backlay py-2'>
               <img src='./img/balloonman.png'  alt='player1'/>
                 <p className='player-name pt-3'>{p1Name} </p>
@@ -254,7 +262,7 @@ function App() {
             ))}
           </div>
           
-          <div className='col-2  text-center '>
+          <div className='col-2 none text-center '>
             <div className='player-backlay py-2'>
               <img src='./img/rocketman.png'  alt='player2'/>
               <p className='player-name pt-3'>{p2Name} </p>
@@ -266,11 +274,40 @@ function App() {
       </div>
       
     </div>
+
+    <div className={showGame ?  'container pt-3 hide' : 'd-none' }>
+        <div className={(totalScore === 27) ? 'd-none ':'row text-center justify-content-around'}>
+          {/* change backlay to reverse between backlays and add padding*/}
+          <div className='col-5 player-backlay pt-2'>
+            <div className='row'>
+              <div className='col-1'> <img className='avatar-size-ingame py-1' src='./img/balloonman.png'  alt='player1'/></div>
+              <div className='col-3'> <p className='player-name py-1'>{p1Name} </p></div>
+              <div className='col-4'> <p className={playerTurn ? 'p2-turn mt-2' : 'disappear mt-2'}>It's Your Turn</p></div>
+              <div className='col-3'><p className='player-score py-1'>Score: {p1Score} </p> </div>
+            </div>
+          </div>
+
+          <div className='col-2 score pt-2 mt-2'>
+            <p>score</p>
+          </div>
+          
+          <div className='col-5 player-backlay pt-2'>
+            <div className='row'>
+              <div className='col-3'><p className='player-score py-1'>Score: {p2Score} </p> </div>
+              <div className='col-4'><p className={playerTurn ? 'disappear  mt-2' : 'p2-turn mt-2'}>It's Your Turn</p></div>
+              <div className='col-3'><p className='player-name py-1'>{p2Name} </p></div>
+              <div className='col-1'><img className='avatar-size-ingame py-1' src='./img/rocketman.png'  alt='player2'/></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     
-    <div className={(totalScore === 27) ? 'container text-center spacing' : 'd-none'}>
+    <div className={(totalScore === 27) ? 'container text-center spacing winner-glass-bg' : 'd-none'}>
       <h1>Well Done!</h1>
-      <h1>Player 1</h1>
-      <img className='champion my-2' src='./img/champ.png'  alt='champion'/>
+      <h1>{winnerName}</h1>
+
+      <img className='champion my-2' src={winnerAvatar}  alt='champion'/>
       <div className='row winner py-2 champion-text  align-items-center position-relative'>
 
         <div className='position-absolute'>
@@ -278,7 +315,7 @@ function App() {
         </div>
 
         <div className='col-2'>
-          <img className='baby-avatar' src='./img/rocketman.png'  alt='player2'/>
+          <img className='baby-avatar' src={winnerAvatar}  alt='player2'/>
         </div>
         
         <div className='col-3 placement'>
@@ -297,7 +334,7 @@ function App() {
 
       <div className='row loser mt-2 py-2 champion-text  align-items-center'>
         <div className='col-2'>
-          <img className='baby-avatar' src='./img/rocketman.png'  alt='player2'/>
+          <img className='baby-avatar' src={loserAvatar}  alt='player2'/>
         </div>
 
         <div className='col-3 placement'>
@@ -314,7 +351,7 @@ function App() {
 
       </div>
 
-      <div className='mt-4'>
+      <div className='mt-4 none'>
         <button type="button" class="btn btn-lg btn-info play-again-btn"  onClick={shuffleCards}>PLAY AGAIN</button>
       </div>
       </div>
